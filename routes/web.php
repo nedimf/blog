@@ -16,6 +16,7 @@
 });*/
 
 //Ruta za pocetnu stranicu
+Route::get('/php_editor','TestController@php_view');
 Route::get('/','TestController@welcome');
 Route::get('/pocetna','TestController@pocetna_view');
 Route::get('/clanak','TestController@clanak');

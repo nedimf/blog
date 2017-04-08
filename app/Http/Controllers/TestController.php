@@ -10,6 +10,11 @@ class TestController extends Controller
 	public function welcome(){
 		return view ('frontend.welcome');
 	}
+
+	public function php_view(){
+		return view ('frontend.php_view');
+	}
+
 	public function pocetna_view(){
 		return view ('frontend.pocetna');
 	}

@@ -15,6 +15,8 @@
       <a href="/pocetna" class="list-group-item">Početna</a>
       
       <a href="/clanak" class="list-group-item">Članak</a>
+
+      <a href="/php_editor" class="list-group-item">Editor</a>
                   
       <a href="https://github.com/phpwizz" class="list-group-item">Github </a>
 
