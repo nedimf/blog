@@ -22,3 +22,10 @@ Route::get('/pocetna','TestController@pocetna_view');
 Route::get('/clanak','TestController@clanak');
 Route::get('/pocetna/{ime}', 'TestController@nameSet');
 
+//Ruta za DB
+
+Route::get('/view_cities','CitiesController@index');
+Route::get('city/{id}', 'CitiesController@show');
+//Route::get('cities','CitiesController@index');
+
+
