@@ -27,7 +27,7 @@ class CitiesController extends Controller
      */
     public function create()
     {
-        //
+        return view ("cities.create");
     }
 
     /**
@@ -38,8 +38,10 @@ class CitiesController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+        $newcity = City::create($request->all());
+        $cities =  City::get();
+        return redirect ("view_cities");
+     }
 
     /**
      * Display the specified resource.
@@ -62,7 +64,8 @@ class CitiesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $city = City::find($id);
+        return view('cities.edit',compact('city'));
     }
 
     /**
@@ -74,7 +77,9 @@ class CitiesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $staricity =City::find($id);
+        $staricity->update($request->all());
+        return redirect('view_cities');
     }
 
     /**
@@ -85,6 +90,7 @@ class CitiesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        City::destroy($id);
+        return redirect ('view_cities');
     }
 }
