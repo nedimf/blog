@@ -15,7 +15,17 @@
 	return view('my_view');
 });*/
 
+//Ruta za Blog
+
+Route::get('/blog','BlogController@index');
+Route::get('blog/new/', 'BlogController@create');
+Route::post('blog/new/', 'BlogController@store');
+Route::get('blog/edit/{id}', 'BlogController@edit');
+Route::post('blog/edit/{id}', 'BlogController@update');
+Route::get('blog/delete/{id}', 'BlogController@destroy');
+Route::get('blog/{id}', 'BlogController@show');
 //Ruta za pocetnu stranicu
+
 Route::get('/php_editor','TestController@php_view');
 Route::get('/','TestController@welcome');
 Route::get('/pocetna','TestController@pocetna_view');
@@ -31,6 +41,9 @@ Route::get('city/edit/{id}', 'CitiesController@edit');
 Route::post('city/edit/{id}', 'CitiesController@update');
 Route::get('city/delete/{id}', 'CitiesController@destroy');
 Route::get('city/{id}', 'CitiesController@show');
+
+
+
 
 
 //Route::get('cities','CitiesController@index');

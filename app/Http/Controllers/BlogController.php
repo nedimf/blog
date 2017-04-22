@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\City;
+use App\Blog;
 
-class CitiesController extends Controller
+class BlogController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,10 +14,8 @@ class CitiesController extends Controller
      */
     public function index()
     {
-        $cities = City::get();
-      //dd($cities);
-
-      return view("cities.index",compact('cities'));
+        $blogs = Blog::get();
+        return view('blog.index',compact('blogs'));
     }
 
     /**
@@ -27,7 +25,7 @@ class CitiesController extends Controller
      */
     public function create()
     {
-        return view ("cities.create");
+        return view('blog.create');
     }
 
     /**
@@ -38,10 +36,10 @@ class CitiesController extends Controller
      */
     public function store(Request $request)
     {
-        $newcity = City::create($request->all());
-        $cities =  City::get();
-        return redirect ("view_cities");
-     }
+        $newblog = Blog::create($request->all());
+        $blogs = Blog::get();
+        return redirect('blog');
+    }
 
     /**
      * Display the specified resource.
@@ -51,9 +49,8 @@ class CitiesController extends Controller
      */
     public function show($id)
     {
-           $city = City::find($id);
-        //return $city;
-        return view("cities.show",compact('city'));
+        $blog = Blog::find($id);
+        return view ('blog.show',compact('blog'));
     }
 
     /**
@@ -64,8 +61,8 @@ class CitiesController extends Controller
      */
     public function edit($id)
     {
-        $city = City::find($id);
-        return view('cities.edit',compact('city'));
+        $blog = Blog::find($id);
+        return view ('blog.edit',compact('blog'));
     }
 
     /**
@@ -77,9 +74,9 @@ class CitiesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $staricity =City::find($id);
-        $staricity->update($request->all());
-        return redirect('view_cities');
+        $oldblog = Blog::find($id);
+        $oldblog->update($request->all());
+        return redirect('blog');
     }
 
     /**
@@ -90,7 +87,7 @@ class CitiesController extends Controller
      */
     public function destroy($id)
     {
-        City::destroy($id);
-        return redirect ('view_cities');
+        Blog::destroy($id);
+        return redirect('blog');
     }
 }
