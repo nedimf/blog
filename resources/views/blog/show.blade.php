@@ -1,4 +1,4 @@
-@extends("blog.master")
+@extends("blog.master_user")
 @section ("content")
 <html>
 <head>

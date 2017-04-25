@@ -12,10 +12,18 @@ class BlogController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index_admin()
+    {
+        $blogs = Blog::get();
+        return view('blog.index_admin',compact('blogs'));
+        
+    }
+
+     public function index()
     {
         $blogs = Blog::get();
         return view('blog.index',compact('blogs'));
+
     }
 
     /**
@@ -38,7 +46,7 @@ class BlogController extends Controller
     {
         $newblog = Blog::create($request->all());
         $blogs = Blog::get();
-        return redirect('blog');
+        return redirect('/blog/admin/');
     }
 
     /**
@@ -76,7 +84,7 @@ class BlogController extends Controller
     {
         $oldblog = Blog::find($id);
         $oldblog->update($request->all());
-        return redirect('blog');
+        return redirect('blog/admin');
     }
 
     /**
@@ -88,6 +96,6 @@ class BlogController extends Controller
     public function destroy($id)
     {
         Blog::destroy($id);
-        return redirect('blog');
+        return redirect('blog/admin');
     }
 }

@@ -17,12 +17,13 @@
 
 //Ruta za Blog
 
-Route::get('/blog','BlogController@index');
-Route::get('blog/new/', 'BlogController@create');
-Route::post('blog/new/', 'BlogController@store');
-Route::get('blog/edit/{id}', 'BlogController@edit');
-Route::post('blog/edit/{id}', 'BlogController@update');
-Route::get('blog/delete/{id}', 'BlogController@destroy');
+Route::get('/blog/admin','BlogController@index_admin')->middleware('isAdmin');;
+	Route::get('/blog','BlogController@index');
+Route::get('blog/admin/new/', 'BlogController@create')->middleware('isAdmin');;
+Route::post('blog/admin/new/', 'BlogController@store')->middleware('isAdmin');;
+Route::get('blog/admin/edit/{id}', 'BlogController@edit')->middleware('isAdmin');;
+Route::post('blog/admin/edit/{id}', 'BlogController@update')->middleware('isAdmin');;
+Route::get('blog/admin/delete/{id}', 'BlogController@destroy')->middleware('isAdmin');;
 Route::get('blog/{id}', 'BlogController@show');
 //Ruta za pocetnu stranicu
 
@@ -49,3 +50,7 @@ Route::get('city/{id}', 'CitiesController@show');
 //Route::get('cities','CitiesController@index');
 
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');

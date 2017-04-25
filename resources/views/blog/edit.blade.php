@@ -4,7 +4,7 @@
 </head>
 <div class="container">
   <h2>Promjeni  ~  ~</h2>
-  <form action="/blog/edit/{{$blog->id}}" method="post">
+  <form action="/blog/admin/edit/{{$blog->id}}" method="post">
    {!! csrf_field() !!}
     <div class="form-group">
       <label>Title</label>

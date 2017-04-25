@@ -81,7 +81,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel Development Platform
+                    Blog proudly made in Laravel
                 </div>
                   <br>
                   <img src ="https://media0.giphy.com/labs/images/laravel-wrapper.gif ">
