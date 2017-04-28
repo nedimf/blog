@@ -2,7 +2,7 @@
 
 
 @yield ("head")
-@include("blog.head")
+@include("blog.bootstrap")
 @yield ("content")
 @yield ("footer")
 

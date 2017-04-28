@@ -3,26 +3,27 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Blog;
+use App\Post;
+use App\Comment;
 
-class BlogController extends Controller
+class PostController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index_admin()
+    public function admin_index()
     {
-        $blogs = Blog::get();
-        return view('blog.index_admin',compact('blogs'));
+        $posts = Post::get();
+        return view('blog.admin',compact('posts'));
         
     }
 
      public function index()
     {
-        $blogs = Blog::get();
-        return view('blog.index',compact('blogs'));
+        $posts = Post::get();
+        return view('blog.index',compact('posts'));
 
     }
 
@@ -44,8 +45,8 @@ class BlogController extends Controller
      */
     public function store(Request $request)
     {
-        $newblog = Blog::create($request->all());
-        $blogs = Blog::get();
+        $newpost = Post::create($request->all());
+        $posts = Post::get();
         return redirect('/blog/admin/');
     }
 
@@ -56,9 +57,11 @@ class BlogController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-    {
-        $blog = Blog::find($id);
-        return view ('blog.show',compact('blog'));
+    {   
+        
+        $post = Post::find($id);
+        $comy = $post->comment;
+        return view ('blog.show',compact('post','comy'));
     }
 
     /**
@@ -69,8 +72,8 @@ class BlogController extends Controller
      */
     public function edit($id)
     {
-        $blog = Blog::find($id);
-        return view ('blog.edit',compact('blog'));
+        $post = Post::find($id);
+        return view ('blog.edit',compact('post'));
     }
 
     /**
@@ -82,8 +85,8 @@ class BlogController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $oldblog = Blog::find($id);
-        $oldblog->update($request->all());
+        $oldpost = Post::find($id);
+        $oldpost->update($request->all());
         return redirect('blog/admin');
     }
 
@@ -95,7 +98,7 @@ class BlogController extends Controller
      */
     public function destroy($id)
     {
-        Blog::destroy($id);
+        Post::destroy($id);
         return redirect('blog/admin');
     }
 }

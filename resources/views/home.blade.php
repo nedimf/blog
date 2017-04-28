@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+
+
 @section('content')
 <div class="container">
     <div class="row">
@@ -18,11 +20,16 @@
              @if (Auth::user()->admin)
                <div class="btn-group btn-group">
     <a href="/blog/admin"><button type="button" class="btn btn-primary">Admin</button></a>
-    <a href ="/blog/new"><button type="button" class="btn btn-primary">Create new post</button></a>
-  
+    <a href ="/blog/admin/new"><button type="button" class="btn btn-primary">Create new post</button></a>
+    <br>
+    
+
+
+
+
             
             @else
-             <a href="/blog/"><button class="btn btn-danger">Blog
+             <a href="/blog/"><button class="btn btn-succes">Blog
              @endif
              
 
