@@ -48,7 +48,8 @@
       
       
       <br>
-      
+    <a href ="/blog"><p>More posts<p></a>
+
 
      @if (App\Comment::count() == 0)
 <center>
@@ -91,6 +92,9 @@
 
 
  <!-- Page Content -->
+
+
+   
    
 
 <hr>
@@ -130,7 +134,7 @@
     <br>
 
 
-   
+
    
 
  
@@ -139,7 +143,9 @@
  <footer>
  <center>
  <h4>Nedim &copy {{date('Y')}}</h4>
-</div>
+</div></center>
+</footer>
+</a></form></div>
 
 <h2></h2>
 </center>

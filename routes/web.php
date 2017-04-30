@@ -19,7 +19,10 @@
 
 
 
-Route::get('/blog/admin/','PostController@admin_index')->middleware('isAdmin');;
+Route::get('/blog/admin','PostController@admin_index')->middleware('isAdmin');;
+
+
+
 
 Route::get('/blog/{id}','CommentController@create');
 Route::post('blog/comment/new', 'CommentController@store');
@@ -40,7 +43,7 @@ Route::get('blog/{id}/', 'PostController@show');
 //Ruta za pocetnu stranicu
 
 Route::get('/php_editor','TestController@php_view');
-Route::get('/','TestController@welcome');
+Route::get('/','PostController@index');
 Route::get('/pocetna','TestController@pocetna_view');
 Route::get('/clanak','TestController@clanak');
 Route::get('/pocetna/{ime}', 'TestController@nameSet');
@@ -66,4 +69,5 @@ Route::get('city/{id}', 'CitiesController@show');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
+
 

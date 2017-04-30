@@ -8,7 +8,7 @@ class TestController extends Controller
 {
     
 	public function welcome(){
-		return view ('frontend.welcome');
+		return view ('blog.blog');
 	}
 
 	public function php_view(){

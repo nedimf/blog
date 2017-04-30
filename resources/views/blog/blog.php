@@ -1,3 +1,15 @@
+@extends("blog.master_user")
+@section ("content")
+<!DOCTYPE html>
+<html>
+  <head>
+  <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+
+
 <!DOCTYPE html>
 <html lang="{{ config('app.locale') }}">
     <head>
@@ -100,24 +112,90 @@ body
                 </div>
             @endif
 
-            <br><br>
-<div class="container">
-    <div class="fb-profile">
-        <img align="left" class="fb-image-lg responsive thumbnail" src="http://www.hreikin.co.uk/wp-content/uploads/2017/04/eat-sleep-code-repeat.jpg" height="600px" alt="Profile image example"/>
-
-        <img align="left" class="fb-image-profile thumbnail responsive" src="https://render.bitstrips.com/v2/cpanel/10212367-281901098_5-s1-v1.png?transparent=1&palette=1" alt="Profile image example"/>
-        <div class="fb-profile-text">
-            <h1>Developer Tux</h1>
-
-            
-        </div>
-    </div>
-</div> <!-- /container -->  
-<br><br><br><br>
-            
-
-    
+<br><br>
 
 
     </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+  <body>
+
+ @if (App\Post::count() == 0)
+
+<center>
+ <h1>Sorry no,post yet on a blog</h1>
+<img src="http://neokino.me/wp-content/themes/neokino/css/prijavi.gif" width="300px" height="200px"></img>
+
+ @else
+
+
+ 
+<h2></h2>
+<div class="container">
+  
+    <ul>
+      @foreach ($posts as $post)
+      
+
+  <div class="container">
+    <div class="row">
+
+        <div class="col-md-6 col-lg-11">
+            <ul class="list-group-item">
+                <li class="media">
+
+                    <a class="pull-left" href="/blog/{{$post->id}}">
+                        <img src="{{$post->image}}" class="img-responsive" width="400px" height="200px" alt="...">
+                    </a>
+                     <h2>{{$post->title}}</h2>
+                      <h4>{{$post->short_content}}</h4>
+                        
+                    <div class="pull-right">
+                    <a href ="/blog/{{$post->id}}"><button class="btn btn-default">Read more</button></a>
+                    </div>
+                    <br><br>
+                      
+                    <span class="glyphicon glyphicon-user">
+                  </span><a href="#"> {{$post->author}}</a>
+
+                      | <span class="glyphicon glyphicon-calendar">
+                      </span>{{$post->updated_at}} |
+
+                      <i class="glyphicon glyphicon-comment">
+                     </i> {{App\Comment::count()}} 
+
+
+                   
+                </li>
+                </ul><br>
+                </div>
+
+      
+
+      @endforeach
+    
+    <br><br>
+
+    
+    
+
+
+
+
+</center>
+@endif
+  </body>
+</html>
+
+@endsection
+

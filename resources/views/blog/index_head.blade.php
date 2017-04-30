@@ -13,8 +13,8 @@
 
 <div class="container">
   <div class="jumbotron">
- <center><img src = "http://icons.iconarchive.com/icons/icons8/christmas-flat-color/512/penguin-icon.png" width="200px" height="200px">
- <h1>Hello {{ Auth::user()->name }}</h1>
+ <center><img src = "https://render.bitstrips.com/v2/cpanel/10212367-281901098_5-s1-v1.png?transparent=1&palette=1" alt="Profile image example" width="200px" height="200px">
+ <h1>Hello Admin </h1>
 
 
  

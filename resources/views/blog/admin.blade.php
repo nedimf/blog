@@ -30,39 +30,88 @@
 <h2></h2>
 <div class="container">
   
+  
+      
+     
+ @if (App\Post::count() == 0)
+
+<center>
+ <h1>Sorry no,post yet on a blog</h1>
+<img src="http://neokino.me/wp-content/themes/neokino/css/prijavi.gif" width="300px" height="200px"></img>
+
+ @else
+
+
+ 
+<h2></h2>
+<div class="container">
+  
     <ul>
       @foreach ($posts as $post)
       
-     <div class="container">
+
+  <div class="container">
     <div class="row">
 
         <div class="col-md-6 col-lg-11">
             <ul class="list-group-item">
                 <li class="media">
 
-                    <a class="pull-left" href="{{$post->id}}">
+                    <a class="pull-left" href="/blog/{{$post->id}}">
                         <img src="{{$post->image}}" class="img-responsive" width="400px" height="200px" alt="...">
                     </a>
                      <h2>{{$post->title}}</h2>
                       <h4>{{$post->short_content}}</h4>
                         
+                    <div class="pull-right">
+                    <a href ="/blog/{{$post->id}}"><button class="btn btn-default">Read more</button></a>
+                    </div>
+                    <br><br>
+                      
+                    <span class="glyphicon glyphicon-user">
+                  </span><a href="#"> {{$post->author}}</a>
+
+                      | <span class="glyphicon glyphicon-calendar">
+                      </span>{{$post->updated_at}} |
+
+                     
+
+
                    
                 </li>
-                </ul>
+                </ul><br>
+              
+      
+
+     
+    
+    
+
+    
+    
+
+
+
+
+</center>
+
                 <br>
   <!--Button -->
   <div class ="pull-right">
   <a href="/blog/admin/edit/{{$post->id}}"><button class="btn btn-success">Edit</button></a>
   <a href="/blog/admin/delete/{{$post->id}}"><button class="btn btn-danger">Destroy</button></a></div>
  <br><br>
-</div><br>
-      
+<br>
+    
 
       @endforeach
+      </ul>  
+      @endif
     </ul>
     <br><br>
     <center><h5>Nedim &copy {{date('Y')}}</h5></center>
-</div>
+
+
 </center>
 
   </body>

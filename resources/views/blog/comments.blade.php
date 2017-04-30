@@ -40,11 +40,7 @@
 
 
     
-    <center>
-    <footer>
-    <h4>Nedim &copy {{date('Y')}}</h4>
-    </footer>
-    </center>
+
 
 
 @endsection

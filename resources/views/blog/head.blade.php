@@ -11,14 +11,7 @@
 </head>
 <body>
 
-<div class="container">
-  <div class="jumbotron">
- <center><img src = "http://icons.iconarchive.com/icons/icons8/christmas-flat-color/512/penguin-icon.png" width="200px" height="200px">
- @if (Auth::guest())
- <h1>Hello</h1>
- @else
- <h1>Hello {{Auth::user()->name}}</h1>
-@endif
+<br>
 
  
 </center>
@@ -29,7 +22,9 @@
 </div>
       
 </div>
-
+<br>
+<a href="/blog/admin"><button class="btn btn-info"><--Back to Home</button></a>
+<br><br>
 </body>
 </html>
 <!-- -->

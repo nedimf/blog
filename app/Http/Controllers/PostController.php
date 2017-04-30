@@ -27,6 +27,14 @@ class PostController extends Controller
 
     }
 
+      public function blog()
+    {
+        $posts = Post::get();
+        return view('blog.blog',compact('posts'));
+
+    }
+
+
     /**
      * Show the form for creating a new resource.
      *
